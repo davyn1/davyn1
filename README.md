@@ -5,7 +5,7 @@ Systems Administrator Technician at the County of Santa Clara, building backend 
 ## Projects
 
 **[Bay Area Yums Map](https://github.com/davyn1/reel-map)** · [Live demo](https://yums-map-demo.fly.dev)
-FastAPI + React/TypeScript app that turns saved Instagram food reels into a shared restaurant map. Import pipeline with a review queue for messy data, session auth, 96 pytest tests, Docker on Fly.io.
+FastAPI + React/TypeScript app that turns saved Instagram food reels into a shared restaurant map. Import pipeline with a review queue for messy data, session auth, 113 pytest tests run by GitHub Actions CI on every push, Docker on Fly.io.
 
 **[Stock Analysis Platform](https://github.com/davyn1/stock-analysis-app)**
 FastAPI + React app that computes 28 technical indicators locally and uses an LLM (Gemini or Claude) to explain them at three experience levels. Code makes every rating; the LLM only explains it, so it never invents numbers. Daily caching caps LLM calls at 3 per ticker per day.
