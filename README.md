@@ -11,7 +11,7 @@ Systems Administrator Technician at the County of Santa Clara, building backend 
 
 ### [Bay Area Yums Map](https://github.com/davyn1/reel-map) · [Live demo](https://yums-map-demo.fly.dev)
 
-FastAPI + React/TypeScript app that turns saved Instagram food reels into a shared restaurant map. Import pipeline with a review queue for messy data, session auth, 113 pytest tests run by GitHub Actions CI on every push, Docker on Fly.io.
+FastAPI + React/TypeScript app that turns saved Instagram food reels into a shared restaurant map. Import pipeline with a review queue for messy data, session auth, 115 pytest tests run by GitHub Actions CI on every push, Docker on Fly.io.
 
 <img src="https://raw.githubusercontent.com/davyn1/reel-map/main/docs/screenshots/popup-desktop.png" alt="Yums Map: map with a restaurant's popup" width="300">
 
