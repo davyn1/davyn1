@@ -13,15 +13,15 @@ Systems Administrator Technician at the County of Santa Clara, building backend 
 
 FastAPI + React/TypeScript app that turns saved Instagram food reels into a shared restaurant map. Import pipeline with a review queue for messy data, session auth, 115 pytest tests run by GitHub Actions CI on every push, Docker on Fly.io.
 
-<img src="https://raw.githubusercontent.com/davyn1/reel-map/main/docs/screenshots/popup-desktop.png" alt="Yums Map: map with a restaurant's popup" width="300">
+<img src="assets/yums-map.png" alt="Yums Map: map with a restaurant's popup" width="300">
 
 ### [Stock Analysis Platform](https://github.com/davyn1/stock-analysis-app)
 
 FastAPI + React app that computes 28 technical indicators locally and uses an LLM (Gemini or Claude) to explain them at three experience levels. Code makes every rating; the LLM only explains it, so it never invents numbers. Daily caching caps LLM calls at 3 per ticker per day.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/davyn1/stock-analysis-app/master/docs/screenshots/analysis-dark.png">
-  <img src="https://raw.githubusercontent.com/davyn1/stock-analysis-app/master/docs/screenshots/analysis.png" alt="Stock Analysis: analysis page for AAPL" width="300">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stock-analysis-dark.png">
+  <img src="assets/stock-analysis.png" alt="Stock Analysis: AAPL ratings and candlestick chart" width="300">
 </picture>
 
 ### [Trading Bot](https://github.com/davyn1/trading-bot)
@@ -29,8 +29,8 @@ FastAPI + React app that computes 28 technical indicators locally and uses an LL
 Multi-strategy paper-trading bot for the Alpaca API with fault-tolerant order handling, crash-safe state, an honest backtester, and a written postmortem.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/davyn1/trading-bot/master/docs/screenshots/dashboard-overview-dark.png">
-  <img src="https://raw.githubusercontent.com/davyn1/trading-bot/master/docs/screenshots/dashboard-overview.png" alt="Trading Bot: dashboard overview with chart and active signals" width="300">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/trading-bot-dark.png">
+  <img src="assets/trading-bot.png" alt="Trading Bot: account tiles and SPY mean-reversion chart" width="300">
 </picture>
 
 ### [Korean Flashcards](https://github.com/davyn1/flashcard-app) · [Live app](https://davyn1.github.io/flashcard-app/)
