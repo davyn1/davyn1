@@ -1,4 +1,7 @@
-# Davy Nguyen
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img src="assets/banner.svg" alt="Davy Nguyen, Systems Administrator building backend and cloud projects in Python" width="100%">
+</picture>
 
 Systems Administrator Technician at the County of Santa Clara, building backend and cloud projects in Python on the side. Based in the Bay Area.
 
