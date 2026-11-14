@@ -1,59 +1,84 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner.svg" alt="Davy Nguyen, Systems Administrator and Software Engineer" width="100%">
-</picture>
+<div align="center">
+  <img src="assets/banner.svg" alt="Player 1: Davy Nguyen, Systems Administrator and Software Engineer. Press start." width="100%">
+</div>
 
-Systems Administrator Technician at the County of Santa Clara, building backend and cloud projects in Python on the side. Based in the Bay Area.
+## 🧙 Character sheet
 
-## Currently
+<img src="assets/character.svg" alt="Character sheet. Class: Systems Administrator Technician. Guild: County of Santa Clara. Origin: UC Irvine, B.S. 2023. Level 4. Base: Bay Area, CA. Weapon: Python. Current quest: AWS Solutions Architect Associate." width="100%">
 
-- Building an AI agent harness, then a RAG project with evals
-- Studying for the AWS Solutions Architect – Associate exam (December 2026)
+By day I keep the County of Santa Clara's systems running: mainframe JCL batch jobs, ServiceNow tickets and server-room monitoring. Off shift I'm leveling up as a software engineer, building Python backends with FastAPI, front ends in React and HTMX, and shipping them to AWS, Docker and Fly.io. B.S. in Business Information Management, UC Irvine (2023).
 
-## Projects
+## 📊 Stats
 
-### [Bay Area Yums Map](https://github.com/davyn1/reel-map) · [Live demo](https://yums-map-demo.fly.dev)
+<img src="assets/stats.svg" alt="Skill stats out of 10. Languages: Python 8, TypeScript 5, SQL 6. Backend: FastAPI 8, SQLAlchemy 6, HTMX 4. Cloud: AWS 6, Docker 6, Fly.io 5. Tools: Git 7, Linux 6, pytest 7, GitHub Actions 5." width="100%">
 
-FastAPI + React/TypeScript app that turns saved Instagram food reels into a shared restaurant map. Import pipeline with a review queue for messy data, session auth, 115 pytest tests run by GitHub Actions CI on every push, Docker on Fly.io.
+## 🏆 Achievements
 
-<img src="assets/yums-map.png" alt="Yums Map: map with a restaurant's popup" width="300">
+<img src="assets/achievements.svg" alt="Achievements. Unlocked: AWS Certified Cloud Practitioner; Google Cybersecurity Professional Certificate. Locked, in progress: AWS Solutions Architect – Associate, expected December 2026." width="100%">
 
-### [Stock Analysis Platform](https://github.com/davyn1/stock-analysis-app)
+## 📜 Quest log
 
-FastAPI + React app that computes 28 technical indicators locally and uses an LLM (Gemini or Claude) to explain them at three experience levels. Code makes every rating; the LLM only explains it, so it never invents numbers. Daily caching caps LLM calls at 3 per ticker per day.
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/davyn1/trading-bot"><img src="assets/quest-trading-bot.svg" alt="Quest 01: Trading Bot (cleared)" width="100%"></a>
+      Multi-strategy paper-trading bot on Alpaca with ATR-based stops, layered risk controls and crash-safe state.<br>
+      <sub><b>Stack:</b> Python · alpaca-py · Streamlit · pytest</sub><br>
+      <a href="https://github.com/davyn1/trading-bot">▶ Repo</a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/davyn1/stock-analysis-app"><img src="assets/quest-stock-analysis.svg" alt="Quest 02: Stock Analysis (cleared)" width="100%"></a>
+      Computes 28 technical indicators in code, then has an LLM explain them at three experience levels without inventing numbers.<br>
+      <sub><b>Stack:</b> FastAPI · React · pandas-ta · Gemini / Claude</sub><br>
+      <a href="https://github.com/davyn1/stock-analysis-app">▶ Repo</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/davyn1/reel-map"><img src="assets/quest-yums-map.svg" alt="Quest 03: Bay Area Yums Map (live)" width="100%"></a>
+      Turns saved Instagram food reels into a shared restaurant map, with an import pipeline that flags messy data for review.<br>
+      <sub><b>Stack:</b> FastAPI · React / TypeScript · SQLite · Docker · Fly.io</sub><br>
+      <a href="https://github.com/davyn1/reel-map">▶ Repo</a> · <a href="https://yums-map-demo.fly.dev">▶ Live demo</a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/davyn1/flashcard-app"><img src="assets/quest-flashcards.svg" alt="Quest 04: Korean Flashcards (live)" width="100%"></a>
+      Offline-first PWA for studying Korean with spaced repetition, synced across devices.<br>
+      <sub><b>Stack:</b> React / TypeScript · IndexedDB · FastAPI · Postgres</sub><br>
+      <a href="https://github.com/davyn1/flashcard-app">▶ Repo</a> · <a href="https://davyn1.github.io/flashcard-app/">▶ Live app</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="assets/quest-morning-dashboard.svg" alt="Quest 05: Morning Dashboard (private)" width="100%">
+      Read-only morning page that pulls priorities, tasks and unread email from Notion and Gmail.<br>
+      <sub><b>Stack:</b> FastAPI · HTMX · Notion API · Gmail API</sub><br>
+      <sub>Private repo</sub>
+    </td>
+    <td width="50%" valign="top">
+      <img src="assets/quest-side-quests.svg" alt="Side quests (in progress)" width="100%">
+      <b>Now:</b> building an AI agent harness.<br>
+      <b>Next:</b> a RAG project with evals.<br>
+      <b>Studying:</b> AWS Solutions Architect – Associate (December 2026).
+    </td>
+  </tr>
+</table>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stock-analysis-dark.png">
-  <img src="assets/stock-analysis.png" alt="Stock Analysis: AAPL ratings and candlestick chart" width="300">
-</picture>
+## 📈 Live stats
 
-### [Trading Bot](https://github.com/davyn1/trading-bot)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/davyn1/davyn1/output/github-stats.svg" alt="Davy's GitHub stats for the past year: contributions, commits, pull requests, public repos and languages" width="49%">
+  <img src="https://raw.githubusercontent.com/davyn1/davyn1/output/top-langs.svg" alt="Davy's top languages by code size across public repos" width="49%">
+  <img src="https://streak-stats.demolab.com?user=davyn1&background=0B1030&border=3DFF8A&stroke=39427A&ring=FF3DF2&fire=FF3DF2&currStreakNum=3DFF8A&currStreakLabel=3DFF8A&sideNums=D6DCFF&sideLabels=D6DCFF&dates=8F99D9" alt="Davy's GitHub contribution streak" width="66%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/davyn1/davyn1/output/github-snake-dark.svg">
+    <img src="https://raw.githubusercontent.com/davyn1/davyn1/output/github-snake.svg" alt="Snake eating Davy's GitHub contribution graph" width="98%">
+  </picture>
+</div>
 
-Multi-strategy paper-trading bot for the Alpaca API with fault-tolerant order handling, crash-safe state, an honest backtester, and a written postmortem.
+---
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/trading-bot-dark.png">
-  <img src="assets/trading-bot.png" alt="Trading Bot: account tiles and SPY mean-reversion chart" width="300">
-</picture>
-
-### [Korean Flashcards](https://github.com/davyn1/flashcard-app) · [Live app](https://davyn1.github.io/flashcard-app/)
-
-Offline-first PWA for studying Korean with spaced repetition (simplified SM-2), installable to an iPhone home screen. React/TypeScript frontend on IndexedDB syncs decks and progress across devices through a FastAPI + Postgres backend.
-
-## Tech
-
-![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat&logo=sqlalchemy&logoColor=white)
-![Pytest](https://img.shields.io/badge/pytest-%23ffffff.svg?style=flat&logo=pytest&logoColor=2f9fe3)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
-
-## Certifications
-
-AWS Certified Cloud Practitioner · Google Cybersecurity Professional Certificate · AWS Solutions Architect – Associate (expected December 2026)
-
-[LinkedIn](https://linkedin.com/in/davy-nguyen1)
+<div align="center">
+  <img src="assets/footer.svg" alt="Continue? Insert coin: contact links are below." width="100%">
+  <br>
+  <a href="https://linkedin.com/in/davy-nguyen1"><b>▶ LinkedIn</b></a> · <a href="https://github.com/davyn1?tab=repositories"><b>▶ All repos</b></a>
+</div>
