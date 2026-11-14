@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="270" viewBox="0 0 800 270" role="img" aria-label="Languages by code in public repos: Python 55%, TypeScript 23%, Java 10%, JavaScript 9%, Svelte 3%.">
+  <title>Languages by code in public repos: Python 55%, TypeScript 23%, Java 10%, JavaScript 9%, Svelte 3%.</title>
+  <style>
+    .grow { transform-box: fill-box; transform-origin: left; animation: grow 1s cubic-bezier(.2, .8, .2, 1) both; }
+    @keyframes grow { from { transform: scaleX(0); } }
+    .drift { animation: drift linear infinite; }
+    @keyframes drift { from { transform: translateX(-266px); } to { transform: translateX(266px); } }
+    .edge { animation: hue 9s ease-in-out infinite alternate; }
+    @keyframes hue { from { stop-color: #38bdf8; } to { stop-color: #f9a8d4; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <defs>
+    <linearGradient id="border" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8" class="edge"/>
+      <stop offset=".5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f9a8d4"/>
+    </linearGradient>
+    <clipPath id="panel"><rect x="2" y="2" width="796" height="266" rx="16"/></clipPath>
+  </defs>
+  <rect x="2" y="2" width="796" height="266" rx="16" fill="#0b1020"/>
+  <g clip-path="url(#panel)"><g class="drift" style="animation-duration:90s;animation-delay:-30.0s"><path d="M18 44 C6 44 0 37 0 29 C0 21 7 15 15 16 C17 7 25 1 35 1 C45 1 52 7 55 15 C59 10 66 8 72 10 C80 12 85 19 85 26 C93 26 100 32 100 37 C100 41 97 44 92 44 Z" transform="translate(560 210) scale(1)" fill="#ffffff" opacity="0.03"/></g></g>
+  <rect x="2" y="2" width="796" height="266" rx="16" fill="none" stroke="url(#border)" stroke-width="2.5"/>
+  <text x="36" y="46" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="2.5">LANGUAGES</text>
+  <text x="764" y="46" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b77a3" text-anchor="end">by code in public repos · updated daily</text>
+  <rect x="36" y="70" width="14" height="14" rx="3" fill="#3572A5"/>
+  <text x="60" y="82" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5ff">Python</text>
+  <rect x="230" y="72" width="470" height="10" rx="5" fill="#1c2445"/>
+  <rect class="grow" style="animation-delay:0.10s" x="230" y="72" width="257.2" height="10" rx="5" fill="#3572A5"/>
+  <text x="764" y="82" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#a9b4d6" text-anchor="end">55%</text>
+  <rect x="36" y="104" width="14" height="14" rx="3" fill="#3178c6"/>
+  <text x="60" y="116" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5ff">TypeScript</text>
+  <rect x="230" y="106" width="470" height="10" rx="5" fill="#1c2445"/>
+  <rect class="grow" style="animation-delay:0.22s" x="230" y="106" width="106.7" height="10" rx="5" fill="#3178c6"/>
+  <text x="764" y="116" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#a9b4d6" text-anchor="end">23%</text>
+  <rect x="36" y="138" width="14" height="14" rx="3" fill="#b07219"/>
+  <text x="60" y="150" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5ff">Java</text>
+  <rect x="230" y="140" width="470" height="10" rx="5" fill="#1c2445"/>
+  <rect class="grow" style="animation-delay:0.34s" x="230" y="140" width="48.8" height="10" rx="5" fill="#b07219"/>
+  <text x="764" y="150" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#a9b4d6" text-anchor="end">10%</text>
+  <rect x="36" y="172" width="14" height="14" rx="3" fill="#f1e05a"/>
+  <text x="60" y="184" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5ff">JavaScript</text>
+  <rect x="230" y="174" width="470" height="10" rx="5" fill="#1c2445"/>
+  <rect class="grow" style="animation-delay:0.46s" x="230" y="174" width="41.9" height="10" rx="5" fill="#f1e05a"/>
+  <text x="764" y="184" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#a9b4d6" text-anchor="end">9%</text>
+  <rect x="36" y="206" width="14" height="14" rx="3" fill="#ff3e00"/>
+  <text x="60" y="218" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#f1f5ff">Svelte</text>
+  <rect x="230" y="208" width="470" height="10" rx="5" fill="#1c2445"/>
+  <rect class="grow" style="animation-delay:0.58s" x="230" y="208" width="14.3" height="10" rx="5" fill="#ff3e00"/>
+  <text x="764" y="218" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#a9b4d6" text-anchor="end">3%</text>
+</svg>
