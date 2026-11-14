@@ -1,10 +1,10 @@
-"""Generate the live GitHub stats and top-languages cards in the arcade style.
+"""Generate the live "languages" card from GitHub's API, in the cloud card style.
 
 Usage: GITHUB_TOKEN=... python scripts/live_stats.py <github user> <out dir>
 
-Runs daily in .github/workflows/profile-assets.yml and publishes to the
-`output` branch. Uses only the standard library plus this folder's modules.
-Counts public, non-fork repos owned by the user.
+Runs daily in .github/workflows/profile-assets.yml and publishes languages.svg
+to the `output` branch. Standard library only (the static cards need Pillow,
+this one doesn't). Counts code in public, non-fork repos the user owns.
 """
 import json
 import os
@@ -12,28 +12,20 @@ import sys
 import urllib.request
 from pathlib import Path
 
-from build_assets import CYAN, GOLD, GREEN, MAGENTA, MUTED, PALE, DIM, svg, text
-from pixfont import text_width
+from cards import BODY, FAINT, INK, TRACK, card, label, t
 
 QUERY = """
 query($login: String!) {
   user(login: $login) {
     repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC, first: 100) {
-      totalCount
-      nodes {
-        stargazerCount
-        languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name } } }
-      }
-    }
-    contributionsCollection {
-      totalCommitContributions
-      restrictedContributionsCount
-      totalPullRequestContributions
-      contributionCalendar { totalContributions }
+      nodes { languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name color } } } }
     }
   }
 }
 """
+
+# Markup and notebooks inflate byte counts without saying much about programming.
+EXCLUDED = {"HTML", "CSS", "SCSS", "Jupyter Notebook"}
 
 
 def fetch(login: str, token: str) -> dict:
@@ -50,74 +42,49 @@ def fetch(login: str, token: str) -> dict:
     return payload["data"]["user"]
 
 
-def stats_card(user: dict) -> str:
-    W, H = 400, 220
-    repos = user["repositories"]
-    cc = user["contributionsCollection"]
-    rows = [
-        ("CONTRIBUTIONS", cc["contributionCalendar"]["totalContributions"]),
-        ("COMMITS", cc["totalCommitContributions"] + cc["restrictedContributionsCount"]),
-        ("PULL REQUESTS", cc["totalPullRequestContributions"]),
-        ("PUBLIC REPOS", repos["totalCount"]),
-        ("LANGUAGES", len(language_totals(user))),
-    ]
-    parts = [text("PLAYER STATS", 30, 30, 3, GREEN), text("PAST YEAR", W - 30, 34, 2, MUTED, anchor="end")]
-    for i, (label, value) in enumerate(rows):
-        y = 70 + i * 26
-        parts.append(text(label, 30, y, 2, PALE))
-        parts.append(f'<rect x="{30 + text_width(label, 2) + 8:g}" y="{y + 6}" '
-                     f'width="{W - 60 - text_width(label, 2) - 16 - text_width(str(value), 2):g}" height="2" fill="{DIM}"/>')
-        parts.append(text(str(value), W - 30, y, 2, GOLD, anchor="end"))
-    label = "GitHub stats for the past year: " + ", ".join(f"{l.title()} {v}" for l, v in rows) + "."
-    return svg(W, H, label, "\n  ".join(parts), inner=False)
-
-
-# Markup and notebooks inflate byte counts without saying much about programming.
-EXCLUDED_LANGUAGES = {"HTML", "CSS", "SCSS", "Jupyter Notebook"}
-
-
-def language_totals(user: dict) -> dict[str, int]:
-    totals: dict[str, int] = {}
+def languages(user: dict, top: int = 5):
+    sizes: dict[str, int] = {}
+    colours: dict[str, str] = {}
     for repo in user["repositories"]["nodes"]:
         for edge in repo["languages"]["edges"]:
             name = edge["node"]["name"]
-            if name not in EXCLUDED_LANGUAGES:
-                totals[name] = totals.get(name, 0) + edge["size"]
-    return totals
+            if name in EXCLUDED:
+                continue
+            sizes[name] = sizes.get(name, 0) + edge["size"]
+            colours[name] = edge["node"]["color"] or "#8b949e"
+    total = sum(sizes.values()) or 1
+    ranked = sorted(sizes.items(), key=lambda kv: kv[1], reverse=True)[:top]
+    return [(name, size / total * 100, colours[name]) for name, size in ranked]
 
 
-def langs_card(user: dict, top: int = 5) -> str:
-    W, H = 400, 220
-    totals = language_totals(user)
-    grand = sum(totals.values()) or 1
-    ranked = sorted(totals.items(), key=lambda kv: kv[1], reverse=True)[:top]
-    colours = [GREEN, CYAN, MAGENTA, GOLD, PALE]
-    parts = [text("TOP LANGUAGES", 30, 30, 3, GREEN)]
-    bar_x, bar_w = 186, W - 30 - 186 - 52
-    for i, (name, size) in enumerate(ranked):
-        y = 70 + i * 26
-        pct = size / grand * 100
-        shown = name.upper()[:12]
-        parts.append(text(shown, 30, y, 2, PALE))
-        parts.append(f'<rect x="{bar_x}" y="{y}" width="{bar_w}" height="14" fill="none" stroke="{DIM}" stroke-width="2"/>')
-        parts.append(f'<rect class="seg" style="animation-delay:{0.2 + i * 0.15:.2f}s" x="{bar_x + 3}" y="{y + 3}" '
-                     f'width="{max((bar_w - 6) * pct / 100, 2):.1f}" height="8" fill="{colours[i % len(colours)]}"/>')
-        parts.append(text(f"{pct:.0f}%", W - 30, y, 2, GOLD, anchor="end"))
+def languages_card(langs) -> str:
+    W = 800
+    row_h, y0 = 34, 82
+    H = y0 + len(langs) * row_h + 18
+    bar_x, bar_w = 230, 470
+    parts = [label(36, 46, "LANGUAGES"),
+             t(W - 36, 46, "by code in public repos · updated daily", 11.5, FAINT, 400, anchor="end")]
+    for i, (name, pct, colour) in enumerate(langs):
+        y = y0 + i * row_h
+        parts.append(f'<rect x="36" y="{y - 12}" width="14" height="14" rx="3" fill="{colour}"/>')
+        parts.append(t(60, y, name, 14, INK, 600))
+        parts.append(f'<rect x="{bar_x}" y="{y - 10}" width="{bar_w}" height="10" rx="5" fill="{TRACK}"/>')
+        parts.append(f'<rect class="grow" style="animation-delay:{0.1 + i * 0.12:.2f}s" x="{bar_x}" y="{y - 10}" '
+                     f'width="{max(bar_w * pct / 100, 6):.1f}" height="10" rx="5" fill="{colour}"/>')
+        parts.append(t(W - 36, y, f"{pct:.0f}%", 13, BODY, 600, anchor="end"))
     css = """
-    .seg { opacity: 0; animation: show 0s steps(1) forwards; }
-    @keyframes show { to { opacity: 1; } }"""
-    label = "Top languages by code size: " + ", ".join(f"{n} {s / grand * 100:.0f}%" for n, s in ranked) + "."
-    return svg(W, H, label, "\n  ".join(parts), css, inner=False)
+    .grow { transform-box: fill-box; transform-origin: left; animation: grow 1s cubic-bezier(.2, .8, .2, 1) both; }
+    @keyframes grow { from { transform: scaleX(0); } }"""
+    aria = "Languages by code in public repos: " + ", ".join(f"{n} {p:.0f}%" for n, p, _ in langs) + "."
+    return card(W, H, aria, "\n  ".join(parts), css, clouds=[(560, H - 60, 1, .03, 90)])
 
 
 def main() -> None:
     login, out = sys.argv[1], Path(sys.argv[2])
     token = os.environ.get("GITHUB_TOKEN") or sys.exit("GITHUB_TOKEN is not set")
-    user = fetch(login, token)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "github-stats.svg").write_text(stats_card(user), encoding="utf-8")
-    (out / "top-langs.svg").write_text(langs_card(user), encoding="utf-8")
-    print("wrote github-stats.svg and top-langs.svg to", out)
+    (out / "languages.svg").write_text(languages_card(languages(fetch(login, token))), encoding="utf-8")
+    print("wrote languages.svg to", out)
 
 
 if __name__ == "__main__":
