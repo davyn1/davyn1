@@ -31,8 +31,8 @@ CLOUD = ("M18 44 C6 44 0 37 0 29 C0 21 7 15 15 16 C17 7 25 1 35 1 C45 1 52 7 55 
 PROFILE = {
     "label": "CLOUD PROFILE",
     "name": "Davy Nguyen",
-    "tagline": ["Systems administrator by day, software engineer in the making.",
-                "I build Python backends and ship them to the cloud."],
+    "tagline": ["Systems Administrator · Software Engineer in the making",
+                "Building fun projects and learning as I go."],
     "meta": "Bay Area · County of Santa Clara · UC Irvine ’23",
     "now": "Now: building an AI agent harness  ·  Next: a RAG project with evals",
 }
@@ -127,7 +127,7 @@ def header():
     cx, cy, r = 676, 112, 62
     body = f'''{label(36, 46, p["label"])}
   {t(36, 92, p["name"], 36, INK, 700)}
-  {t(36, 124, p["tagline"][0], 15, BODY)}
+  {t(36, 124, p["tagline"][0], 16, INK, 600)}
   {t(36, 146, p["tagline"][1], 15, BODY)}
   {t(36, 180, p["meta"], 12.5, FAINT, 400, MONO)}
   <circle cx="36" cy="203" r="3.5" fill="{GREEN}" class="pulse"/>
@@ -140,19 +140,39 @@ def header():
   </defs>
   <circle cx="{cx}" cy="{cy}" r="{r + 5}" fill="none" stroke="url(#border)" stroke-width="3"/>
   <circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#sky)"/>
-  <g clip-path="url(#avatar)">
-    <g class="bob"><path d="{CLOUD}" transform="translate({cx - 42} {cy - 14}) scale(.84)" fill="#ffffff"/></g>
-    <g class="bob2"><path d="{CLOUD}" transform="translate({cx - 58} {cy + 22}) scale(.5)" fill="#ffffff" opacity=".55"/></g>
-  </g>'''
+  <g clip-path="url(#avatar)">{server_cloud(cx, cy)}</g>'''
     css = """
     .bob { animation: bob 5s ease-in-out infinite; }
-    .bob2 { animation: bob 7s ease-in-out infinite reverse; }
     .pulse { animation: pulse 2s ease-in-out infinite; }
-    @keyframes bob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(6px, -3px); } }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }"""
-    aria = (f'{p["name"]}. {" ".join(p["tagline"])} {p["meta"].replace("’", "20")}. '
+    .uplink { animation: uplink 1.2s linear infinite; }
+    .led { animation: led 2.4s steps(1) infinite; }
+    @keyframes bob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(3px, -2px); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+    @keyframes uplink { to { stroke-dashoffset: 12; } }
+    @keyframes led { 0% { opacity: 1; } 80% { opacity: .25; } 90% { opacity: 1; } }"""
+    aria = (f'{p["name"]}. {p["tagline"][0]}. {p["tagline"][1]} {p["meta"].replace("’", "20")}. '
             f'{p["now"].replace("  ·  ", ". ")}.')
     return card(W, H, aria, body, css, clouds=[(120, 150, 1.6, .035, 70), (420, 20, 1.1, .03, 90), (300, 190, .8, .03, 60)])
+
+
+def server_cloud(cx, cy):
+    """Avatar art: a small server rack sending data up to a cloud (sysadmin → cloud).
+
+    Drawn around (0, 0) and placed at (cx, cy). Status lights blink out of step,
+    the dashed uplink flows upward, and the cloud drifts gently.
+    """
+    units = []
+    for i, y in enumerate((-5, 15, 35)):
+        units.append(f'<rect x="-30" y="{y}" width="60" height="16" rx="3" fill="{BG}" stroke="{SKY}" stroke-width="1.5"/>'
+                     f'<line x1="-2" y1="{y + 8}" x2="22" y2="{y + 8}" stroke="{SKY}" stroke-width="1.5" opacity=".7"/>')
+        for j, colour in enumerate((GREEN, BLUSH if i == 1 else GREEN)):
+            units.append(f'<circle class="led" style="animation-delay:{(i * 2 + j) * 0.37:.2f}s" '
+                         f'cx="{-21 + j * 8}" cy="{y + 8}" r="2.5" fill="{colour}"/>')
+    return f'''<g transform="translate({cx} {cy + 1}) scale(.97)">
+      <g class="bob"><path d="{CLOUD}" transform="translate(-36 -53) scale(.72)" fill="#ffffff"/></g>
+      <line class="uplink" x1="0" y1="-8" x2="0" y2="-20" stroke="#ffffff" stroke-width="2" stroke-dasharray="3 3"/>
+      {"".join(units)}
+    </g>'''
 
 
 def flashcard_art(x, y, w, h):

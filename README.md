@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/header.svg" alt="Davy Nguyen. Systems administrator by day, software engineer in the making. I build Python backends and ship them to the cloud. Bay Area, County of Santa Clara, UC Irvine 2023. Now: building an AI agent harness. Next: a RAG project with evals." width="100%">
+<img src="assets/header.svg" alt="Davy Nguyen. Systems Administrator, Software Engineer in the making. Building fun projects and learning as I go. Bay Area, County of Santa Clara, UC Irvine 2023. Now: building an AI agent harness. Next: a RAG project with evals." width="100%">
 
 <a href="https://github.com/davyn1/reel-map"><img src="assets/project-yums-map.svg" alt="Project 01: Bay Area Yums Map. Saved Instagram food reels turned into a shared map. Python, live demo." width="48%"></a> <a href="https://github.com/davyn1/stock-analysis-app"><img src="assets/project-stock-analysis.svg" alt="Project 02: Stock Analysis. 28 indicators computed in code, explained by an LLM at 3 levels. FastAPI and React." width="48%"></a>
 
