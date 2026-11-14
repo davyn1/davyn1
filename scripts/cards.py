@@ -40,7 +40,7 @@ PROFILE = {
 PROJECTS = [  # slug, label, name, description lines, language, colour, badge, thumbnail
     ("yums-map", "PROJECT 01", "Bay Area Yums Map",
      ["Saved Instagram food reels,", "turned into a shared map."],
-     "Python", "#3572A5", "Live demo", ("yums-map.png", (300, 40, 740, 320))),
+     "Python", "#3572A5", "Live demo ↗", ("yums-map.png", (300, 40, 740, 320))),
     ("stock-analysis", "PROJECT 02", "Stock Analysis",
      ["28 indicators computed in code,", "explained by an LLM at 3 levels."],
      "Python", "#3572A5", "FastAPI + React", ("stock-analysis-dark.png", (266, 368, 706, 648))),
@@ -49,7 +49,7 @@ PROJECTS = [  # slug, label, name, description lines, language, colour, badge, t
      "Python", "#3572A5", "Paper trading", ("trading-bot-dark.png", (470, 400, 910, 680))),
     ("flashcards", "PROJECT 04", "Korean Flashcards",
      ["Offline-first PWA with spaced", "repetition and device sync."],
-     "TypeScript", "#3178c6", "Live app", None),
+     "TypeScript", "#3178c6", "PWA", None),
 ]
 
 CERTS = [  # name lines, issuer, earned, status

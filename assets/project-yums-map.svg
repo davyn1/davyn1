@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200" role="img" aria-label="Project 01: Bay Area Yums Map. Saved Instagram food reels, turned into a shared map. Python. Live demo.">
-  <title>Project 01: Bay Area Yums Map. Saved Instagram food reels, turned into a shared map. Python. Live demo.</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200" role="img" aria-label="Project 01: Bay Area Yums Map. Saved Instagram food reels, turned into a shared map. Python. Live demo ↗.">
+  <title>Project 01: Bay Area Yums Map. Saved Instagram food reels, turned into a shared map. Python. Live demo ↗.</title>
   <style>
     .drift { animation: drift linear infinite; }
     @keyframes drift { from { transform: translateX(-133px); } to { transform: translateX(133px); } }
@@ -26,6 +26,6 @@
   <rect x="254" y="58" width="124" height="80" rx="8" fill="none" stroke="#1c2445" stroke-width="1.5"/>
   <rect x="26" y="158" width="10" height="10" rx="2" fill="#3572A5"/>
   <text x="42" y="167" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#a9b4d6">Python</text>
-  <rect x="275" y="152" width="99" height="22" rx="11" fill="#121933" stroke="#1c2445"/>
-  <text x="324.5" y="167" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#38bdf8" text-anchor="middle">Live demo</text>
+  <rect x="257" y="152" width="117" height="22" rx="11" fill="#121933" stroke="#1c2445"/>
+  <text x="315.5" y="167" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#38bdf8" text-anchor="middle">Live demo ↗</text>
 </svg>
